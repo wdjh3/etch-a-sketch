@@ -12,6 +12,9 @@
 
 div.square {
     background-color: white;
+    border: 2px solid red;
     height: 60px;
     width: 60px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }

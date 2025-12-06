@@ -2,7 +2,9 @@ const body = document.querySelector("body");
 const container = document.querySelector("#container");
 const button = document.querySelector("#btn");
 
-let numberOfSquaresPerSide = 16;
+let containerWidth = container.getBoundingClientRect().width;
+
+let numberOfSquaresPerSide = 32;
 addSquares(numberOfSquaresPerSide);
 
 container.addEventListener('mouseover',(event) => {
@@ -23,6 +25,8 @@ function addSquares(numberOfSquaresPerSide) {
     for ( let i = 0 ; i < numberOfSquaresPerSide * numberOfSquaresPerSide ; i++ ) {
         let square = document.createElement("div");
         square.classList.add("square");
+        square.style.width = `${Math.floor(containerWidth / numberOfSquaresPerSide)}px`;
+        square.style.height = `${Math.floor(containerWidth / numberOfSquaresPerSide)}px`;
 
         container.appendChild(square);
     }
