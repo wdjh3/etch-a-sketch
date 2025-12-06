@@ -12,9 +12,4 @@
 
 div.square {
     background-color: black;
-    opacity: 0;
-    height: 60px;
-    width: 60px;
-    flex-grow: 1;
-    flex-shrink: 1;
 }

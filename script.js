@@ -12,8 +12,7 @@ addHoverTurnBlacker(container);
 function addHoverTurnBlacker(container) {
     container.addEventListener('mouseover',(event) => {
         if( event.target.classList.contains("square") ) {
-            currentOpacity = parseFloat(window.getComputedStyle(event.target).opacity);
-            event.target.style.opacity = currentOpacity + 0.1;
+            event.target.style.opacity = parseFloat(event.target.style.opacity) + 0.1;
         };
     })
 }
@@ -45,6 +44,7 @@ function addSquares(numberOfSquaresPerSide, container) {
         square.classList.add("square");
         square.style.width = `${(containerWidth / numberOfSquaresPerSide)}px`;
         square.style.height = `${(containerWidth / numberOfSquaresPerSide)}px`;
+        square.style.opacity = "0";
 
         container.appendChild(square);
     }
