@@ -5,7 +5,7 @@ const button = document.querySelector("#btn");
 let containerWidth = container.getBoundingClientRect().width;
 
 let numberOfSquaresPerSide = 32;
-addSquares(numberOfSquaresPerSide);
+addSquares(numberOfSquaresPerSide, container);
 
 container.addEventListener('mouseover',(event) => {
     if( event.target.classList.contains("square") ) {
@@ -15,13 +15,17 @@ container.addEventListener('mouseover',(event) => {
 
 btn.addEventListener('click', () => {
     numberOfSquaresPerSide = prompt("Number of squares per side?");
-    // container.remove();
-    // let newContainer = document.createElement("div");
-    // newContainer.id = "container";
-    // body.appendChild(newContainer);
+
+    container.remove();
+
+    let newContainer = document.createElement("div");
+    newContainer.id = "container";
+    body.appendChild(newContainer);
+
+    addSquares(numberOfSquaresPerSide, newContainer);
 })
 
-function addSquares(numberOfSquaresPerSide) {
+function addSquares(numberOfSquaresPerSide, container) {
     for ( let i = 0 ; i < numberOfSquaresPerSide * numberOfSquaresPerSide ; i++ ) {
         let square = document.createElement("div");
         square.classList.add("square");
