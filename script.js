@@ -4,7 +4,7 @@ const button = document.querySelector("#btn");
 
 let containerWidth = container.getBoundingClientRect().width;
 
-let numberOfSquaresPerSide = 32;
+let numberOfSquaresPerSide = 16;
 addSquares(numberOfSquaresPerSide, container);
 
 addHoverTurnBlack(container);
@@ -26,6 +26,7 @@ btn.addEventListener('click', () => {
 
     let newContainer = document.createElement("div");
     newContainer.id = "container";
+
     body.appendChild(newContainer);
 
     addSquares(numberOfSquaresPerSide, newContainer);
