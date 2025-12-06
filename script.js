@@ -7,12 +7,13 @@ let containerWidth = container.getBoundingClientRect().width;
 let numberOfSquaresPerSide = 16;
 addSquares(numberOfSquaresPerSide, container);
 
-addHoverTurnBlack(container);
+addHoverTurnBlacker(container);
 
-function addHoverTurnBlack(container) {
+function addHoverTurnBlacker(container) {
     container.addEventListener('mouseover',(event) => {
         if( event.target.classList.contains("square") ) {
-            event.target.style.backgroundColor = "black";
+            currentOpacity = parseFloat(window.getComputedStyle(event.target).opacity);
+            event.target.style.opacity = currentOpacity + 0.1;
         };
     })
 }
@@ -35,7 +36,7 @@ btn.addEventListener('click', () => {
     body.appendChild(newContainer);
 
     addSquares(numberOfSquaresPerSide, newContainer);
-    addHoverTurnBlack(newContainer);
+    addHoverTurnBlacker(newContainer);
 })
 
 function addSquares(numberOfSquaresPerSide, container) {
