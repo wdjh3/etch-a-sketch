@@ -20,6 +20,11 @@ function addHoverTurnBlack(container) {
 btn.addEventListener('click', () => {
     numberOfSquaresPerSide = prompt("Number of squares per side?");
 
+    if (numberOfSquaresPerSide > 100) {
+        alert("Please enter a number smaller than or equal to 100. I don't want to crash.");
+        return;
+    }
+
     const container = document.querySelector("#container");
 
     container.remove();
@@ -37,9 +42,19 @@ function addSquares(numberOfSquaresPerSide, container) {
     for ( let i = 0 ; i < numberOfSquaresPerSide * numberOfSquaresPerSide ; i++ ) {
         let square = document.createElement("div");
         square.classList.add("square");
-        square.style.width = `${Math.floor(containerWidth / numberOfSquaresPerSide)}px`;
-        square.style.height = `${Math.floor(containerWidth / numberOfSquaresPerSide)}px`;
+        square.style.width = `${(containerWidth / numberOfSquaresPerSide)}px`;
+        square.style.height = `${(containerWidth / numberOfSquaresPerSide)}px`;
 
         container.appendChild(square);
+    }
+}
+
+for(let i = 0 ; i <= 100 ; i++) {
+    let squareWidth = Math.floor(960/i)
+    let leftOverSpace = 960 - i * squareWidth;
+    let numberOfSquares = i;
+    let leftOverMoreThanWidth = (leftOverSpace >= squareWidth);
+    if (leftOverMoreThanWidth) {
+        console.log( "leftover space = " + (leftOverSpace) + ", number of squares = " + numberOfSquares + ", leftover > width: " + leftOverMoreThanWidth);
     }
 }
