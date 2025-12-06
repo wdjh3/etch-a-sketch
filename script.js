@@ -48,13 +48,3 @@ function addSquares(numberOfSquaresPerSide, container) {
         container.appendChild(square);
     }
 }
-
-for(let i = 0 ; i <= 100 ; i++) {
-    let squareWidth = Math.floor(960/i)
-    let leftOverSpace = 960 - i * squareWidth;
-    let numberOfSquares = i;
-    let leftOverMoreThanWidth = (leftOverSpace >= squareWidth);
-    if (leftOverMoreThanWidth) {
-        console.log( "leftover space = " + (leftOverSpace) + ", number of squares = " + numberOfSquares + ", leftover > width: " + leftOverMoreThanWidth);
-    }
-}
