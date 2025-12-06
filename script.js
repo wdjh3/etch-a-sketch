@@ -7,9 +7,9 @@ let containerWidth = container.getBoundingClientRect().width;
 let numberOfSquaresPerSide = 32;
 addSquares(numberOfSquaresPerSide, container);
 
-containerAddEventListener(container);
+addHoverTurnBlack(container);
 
-function containerAddEventListener(container) {
+function addHoverTurnBlack(container) {
     container.addEventListener('mouseover',(event) => {
         if( event.target.classList.contains("square") ) {
             event.target.style.backgroundColor = "black";
@@ -20,6 +20,8 @@ function containerAddEventListener(container) {
 btn.addEventListener('click', () => {
     numberOfSquaresPerSide = prompt("Number of squares per side?");
 
+    const container = document.querySelector("#container");
+
     container.remove();
 
     let newContainer = document.createElement("div");
@@ -27,6 +29,7 @@ btn.addEventListener('click', () => {
     body.appendChild(newContainer);
 
     addSquares(numberOfSquaresPerSide, newContainer);
+    addHoverTurnBlack(newContainer);
 })
 
 function addSquares(numberOfSquaresPerSide, container) {
