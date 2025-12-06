@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const button = document.querySelector("#btn");
 
 let amountOfSquaresPerSide = 16;
 for ( let i = 0 ; i < amountOfSquaresPerSide * amountOfSquaresPerSide ; i++ ) {
@@ -13,3 +14,4 @@ container.addEventListener('mouseover',(event) => {
         event.target.style.backgroundColor = "black";
     };
 })
+
