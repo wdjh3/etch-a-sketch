@@ -1,1 +1,1 @@
-This is the etch-a-sketch project from The Odin Project. This repository was made for educational purposes.
+This is the etch-a-sketch project from The Odin Project but with darkening opacity! This repository was made for educational purposes.
