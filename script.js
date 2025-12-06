@@ -7,11 +7,15 @@ let containerWidth = container.getBoundingClientRect().width;
 let numberOfSquaresPerSide = 32;
 addSquares(numberOfSquaresPerSide, container);
 
-container.addEventListener('mouseover',(event) => {
-    if( event.target.classList.contains("square") ) {
-        event.target.style.backgroundColor = "black";
-    };
-})
+containerAddEventListener(container);
+
+function containerAddEventListener(container) {
+    container.addEventListener('mouseover',(event) => {
+        if( event.target.classList.contains("square") ) {
+            event.target.style.backgroundColor = "black";
+        };
+    })
+}
 
 btn.addEventListener('click', () => {
     numberOfSquaresPerSide = prompt("Number of squares per side?");
