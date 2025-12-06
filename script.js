@@ -7,12 +7,18 @@ let containerWidth = container.getBoundingClientRect().width;
 let numberOfSquaresPerSide = 16;
 addSquares(numberOfSquaresPerSide, container);
 
-addHoverTurnBlack(container);
+addHoverTurnRandomColour(container);
 
-function addHoverTurnBlack(container) {
+function addHoverTurnRandomColour(container) {
     container.addEventListener('mouseover',(event) => {
         if( event.target.classList.contains("square") ) {
-            event.target.style.backgroundColor = "black";
+            let redValue = Math.floor(Math.random() * 255);
+            let greenValue = Math.floor(Math.random() * 255);
+            let blueValue = Math.floor(Math.random() * 255);
+
+            event.target.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+
+            //I'm gonna be honest, this look like vomit
         };
     })
 }
@@ -35,7 +41,7 @@ btn.addEventListener('click', () => {
     body.appendChild(newContainer);
 
     addSquares(numberOfSquaresPerSide, newContainer);
-    addHoverTurnBlack(newContainer);
+    addHoverTurnRandomColour(newContainer);
 })
 
 function addSquares(numberOfSquaresPerSide, container) {
@@ -46,15 +52,5 @@ function addSquares(numberOfSquaresPerSide, container) {
         square.style.height = `${(containerWidth / numberOfSquaresPerSide)}px`;
 
         container.appendChild(square);
-    }
-}
-
-for(let i = 0 ; i <= 100 ; i++) {
-    let squareWidth = Math.floor(960/i)
-    let leftOverSpace = 960 - i * squareWidth;
-    let numberOfSquares = i;
-    let leftOverMoreThanWidth = (leftOverSpace >= squareWidth);
-    if (leftOverMoreThanWidth) {
-        console.log( "leftover space = " + (leftOverSpace) + ", number of squares = " + numberOfSquares + ", leftover > width: " + leftOverMoreThanWidth);
     }
 }
